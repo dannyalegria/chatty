@@ -31,7 +31,9 @@ app.use(bodyParser.json())
 We will discussing, in much more depth, how this works tomorrow!
 
 ### Step 2: Serving Messages
-1. Create an array for storing your messages temporarily. You could call the variable `messages`. Think about what scope this variable should be placed in. We need to be sure we keep our messages from previous requests or at least until our server is restarted.
+1. Create an array for storing your messages temporarily. You could call the variable `messages`.
+
+Think about what scope this variable should be placed in. We need to be sure we keep our messages from previous requests or at least until our server is restarted.
 
 1. Write a new GET endpoint that returns our array of messages. It will look something like this:
   ```javascript
@@ -97,7 +99,7 @@ First, lets change our `messages` array — from an array of strings to an array
 messages.push({ message: req.body.message, time: new Date() });
 ```
 
-Second, we need to make a small adjustment to our client-side code to handle this new data structure. The ng-repeat of over our messages will need to look simlar to this:
+Second, we need to make a small adjustment to our client-side code to handle this new data structure. The ng-repeat of over our messages will need to look similar to this:
 ```html
 <div ng-repeat="message in messages track by $index">
   {{message.message}} : {{message.time}}
